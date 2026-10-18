@@ -54,11 +54,25 @@ dialog p{margin:8px 0 0;color:var(--mut)}
 #qr-box{background:#fff;padding:12px;border-radius:12px;margin-top:10px}#qr-box svg{display:block;width:100%;height:auto}
 details.more{margin-top:22px;border-top:1px solid var(--line);padding-top:12px;color:var(--mut)}
 details.more summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-size:.9rem}
+details.help{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 12px;margin-bottom:10px;font-size:.85rem}
+details.help summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600}
+details.help ul{margin:0 0 12px;padding-left:18px}details.help li{margin:5px 0}
+.tip{font-size:.88rem;color:var(--mut);margin:0 0 12px}
+.main:only-child{padding-bottom:16px}
 </style></head>
 <body><main>
 <h1>🏠 Nuestra casa</h1>
 <div class="banner" id="banner" hidden></div>
 <div class="tabs"><button class="tab on" id="t-casa">🏠 Casa <span id="c-casa"></span></button><button class="tab" id="t-shop">🛒 Compra <span id="c-shop"></span></button><button class="tab" id="t-pending">📥 Por guardar <span id="c-pending"></span></button><button class="tab" id="t-fridge">🧊 Nevera <span id="c-fridge"></span></button><button class="tab" id="t-freezer">❄️ Freezer <span id="c-freezer"></span></button><button class="tab" id="t-pantry">🗄️ Despensa <span id="c-pantry"></span></button></div>
+<details class="help" id="help"><summary>❓ Qué significa cada cosa</summary><ul>
+<li><b>🏠 Casa</b>: todo lo que hay en casa (nevera, freezer, despensa y lo que falta guardar).</li>
+<li><b>🛒 Compra</b>: lo que falta comprar. Cuando compres algo, tócalo y confirma: sale de la lista. Si eliges dónde lo guardas, va directo ahí; si no, queda en «Por guardar».</li>
+<li><b>📥 Por guardar</b>: ya comprado, pero aún sin guardar. Tócalo para elegir dónde va.</li>
+<li><b>🧊 Nevera · ❄️ Freezer · 🗄️ Despensa</b>: solo sale lo que hay. Si algo se termina, tócalo y elige «Se terminó»: pasa a Compra.</li>
+<li><b>− / +</b>: restar o sumar unidades. Al restar la última, pregunta si pasa a Compra.</li>
+<li><b>Colores</b>: la categoría del producto. Con los botones de colores puedes filtrar.</li>
+</ul></details>
+<p class="tip" id="tip"></p>
 <div class="row"><input id="q" placeholder="Buscar…" aria-label="Buscar"><select id="sort" aria-label="Ordenar"><option value="az">A → Z</option><option value="za">Z → A</option><option value="exp">Caducidad</option><option value="cat">Categoría</option></select></div>
 <div class="leg" id="leg"></div>
 <div class="row" id="add"><input id="name" placeholder="Añadir producto…" autocomplete="off" aria-label="Producto"><input id="qty" class="q" type="number" min="1" inputmode="numeric" placeholder="Cant." aria-label="Cantidad"><select id="loc" aria-label="Dónde"><option value="shop">🛒 Compra</option><option value="fridge">🧊 Nevera</option><option value="freezer">❄️ Freezer</option><option value="pantry">🗄️ Despensa</option></select><input id="dr" list="drawers" placeholder="Gaveta / balda" size="9" aria-label="Gaveta o balda"><input id="exp" type="date" title="Caducidad (opcional)" aria-label="Caducidad"><select id="cat" aria-label="Categoría"></select><button class="btn" id="go">Añadir</button></div>
@@ -82,13 +96,17 @@ details.more summary{cursor:pointer;min-height:44px;display:flex;align-items:cen
 <label for="e-exp">Caducidad</label><input id="e-exp" type="date">
 <div class="row"><button class="btn bad" id="e-del">Eliminar</button><button class="btn g" id="e-no">Cancelar</button><button class="btn" id="e-ok">Guardar</button></div></dialog>
 
-<dialog id="dlg-buy"><b id="b-title">Comprado</b>
-<label for="b-loc">¿Dónde lo guardas?</label><select id="b-loc"><option value="fridge">🧊 Nevera</option><option value="freezer">❄️ Freezer</option><option value="pantry">🗄️ Despensa</option></select>
+<dialog id="dlg-buy"><b id="b-title">Comprado</b><p id="b-msg"></p>
+<label for="b-loc">¿Dónde lo guardas?</label><select id="b-loc"><option value="pending">📥 Por guardar (decidir luego)</option><option value="fridge">🧊 Nevera</option><option value="freezer">❄️ Freezer</option><option value="pantry">🗄️ Despensa</option></select>
+<div class="quick" id="b-prev"></div>
 <label for="b-qty">Cantidad</label><input id="b-qty" type="number" min="1" inputmode="numeric">
-<label for="b-dr">Gaveta / balda</label><input id="b-dr" list="drawers">
+<div id="b-where"><label for="b-dr">Gaveta / balda</label><input id="b-dr" list="drawers">
 <label for="b-exp">Caducidad (opcional)</label><input id="b-exp" type="date">
-<div class="quick" id="b-quick"><button type="button" data-d="3">3 días</button><button type="button" data-d="7">1 semana</button><button type="button" data-d="30">1 mes</button><button type="button" data-d="90">3 meses</button></div>
-<div class="row"><button class="btn g" id="b-no">Cancelar</button><button class="btn" id="b-ok">Guardar</button></div></dialog>
+<div class="quick" id="b-quick"><button type="button" data-d="3">3 días</button><button type="button" data-d="7">1 semana</button><button type="button" data-d="30">1 mes</button><button type="button" data-d="90">3 meses</button></div></div>
+<div class="row"><button class="btn g" id="b-edit">✏️ Editar</button><button class="btn g" id="b-no">Cancelar</button><button class="btn" id="b-ok">Guardar</button></div></dialog>
+
+<dialog id="dlg-act"><b id="x-t"></b><p id="x-m"></p>
+<div class="row"><button class="btn g" id="x-edit">✏️ Editar</button><button class="btn g" id="x-no">Cancelar</button><button class="btn" id="x-out">🛒 Se terminó</button></div></dialog>
 
 <dialog id="dlg-code"><b>Código de tu casa</b>
 <p>Elige un código largo y secreto y úsalo igual en todos los móviles de casa. Funciona como contraseña: quien lo tenga puede ver y editar la lista.</p>
@@ -109,6 +127,14 @@ details.more summary{cursor:pointer;min-height:44px;display:flex;align-items:cen
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 /* ====== CONFIGURACIÓN: sustituye este bloque por el que te da Firebase (paso 2 de las instrucciones) ====== */
+/*const firebaseConfig = {
+  apiKey: "AIzaSyBQE2cKErIQQ5S8SE55eqDYTkzF7FTNGrE",
+  authDomain: "casa-kike.firebaseapp.com",
+  projectId: "casa-kike",
+  storageBucket: "casa-kike.firebasestorage.app",
+  messagingSenderId: "866353126128",
+  appId: "1:866353126128:web:fbd7773288bc3ca58f4035"
+};*/
 const firebaseConfig = {
   apiKey: "AIzaSyAi2T3Ug3HMIu2rHXUhVh2IC5G80clubqA",
   authDomain: "casa-costan-macareno.firebaseapp.com",
@@ -124,17 +150,21 @@ const CATS={lacteos:['🥛 Lácteos y huevos','#4a90d9'],bebidas:['🥤 Bebidas'
 const KW={lacteos:'leche,huevo,queso,yogur,mantequilla,nata',bebidas:'cerveza,jugo,zumo,agua ,vino,refresco',congelados:'helado,hielo,nugget,rollito,lasagna,croqueta,frita',hogar:'servilleta,absorbo,limpia,jabon,dientes,deshumidificador,antical,papel',carnes:'pollo,pavo,pechuga,chuleta,filete,lomo,milanesa,butifarra,chorizo,longaniza,morcilla,salchicha,chistorra,costilla,jamon,hueso,tocineta,fuet,carne,secreto,pulled,hamburguesa,solomillo,combinado',pescado:'salmon,camaron,boqueron,anchoa,atun,bacalao,pescado,gamba',verduras:'tomate,cebolla,puerro,champi,lechuga,pimiento,pepino,ajo,zanahoria,calabac,espinaca,papa,patata,bachoqueta,ensalada,verdura',frutas:'naranja,manzana,platano,fresa,uva,limon,maracuya,guayaba,fruta,aguacate',despensa:'harina,azucar,sal,aceite,arroz,pasta,caldo,fideua,pimenton,azafran,chia,bicarbonato,aceituna,cafe,cereal,galleta'};
 const TABS=['casa','shop','pending','fridge','freezer','pantry'];
 const LOC={shop:['🛒','Compra'],pending:['📥','Por guardar'],fridge:['🧊','Nevera'],freezer:['❄️','Freezer'],pantry:['🗄️','Despensa']};
+/* «Casa» = solo lo que hay físicamente en casa; la lista de la compra no entra */
+const HOME=['pending','fridge','freezer','pantry'];
+const inTab=(i,t)=>t==='casa'?HOME.includes(i.list):i.list===t;
+const STOCK_TIP='Solo sale lo que hay. Usa − y + para las cantidades; toca un producto si se terminó.';
+const TIP={casa:'Todo lo que hay en casa. Toca un producto si se terminó o para editarlo.',shop:'Lo que falta comprar. Cuando compres algo, tócalo y confirma: sale de esta lista (si no eliges sitio, va a «Por guardar»).',pending:'Ya comprado, falta guardarlo. Tócalo para elegir nevera, freezer o despensa.',fridge:STOCK_TIP,freezer:STOCK_TIP,pantry:STOCK_TIP};
 const $=s=>document.querySelector(s);
 const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const emoji=n=>{const k=norm(n);for(const w in EMO)if(k.includes(w))return EMO[w];return '🛍️'};
 function guess(n){const k=norm(n)+' ';for(const c in KW)if(KW[c].split(',').some(w=>k.includes(w)))return c;return 'otros'}
 const cat=i=>i.cat||guess(i.name);
-const homeFor=i=>i.home||({despensa:'pantry',hogar:'pantry',congelados:'freezer'}[cat(i)])||'fridge';
 const days=e=>Math.round((new Date(e+'T00:00:00')-new Date().setHours(0,0,0,0))/864e5);
 const iso=d=>{const x=new Date(Date.now()+d*864e5);return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0')};
 
-let tab='casa',items=[],fcat='',undoFn=null,tt,editId=null,buyId=null,lastDr={},col=null,fdb=null,pend=false;
+let tab='casa',items=[],fcat='',undoFn=null,tt,editId=null,buyId=null,actId=null,lastDr={},col=null,fdb=null,pend=false;
 
 /* ---------- Avisos ---------- */
 function toast(m,fn,ms){$('#tmsg').textContent=m;undoFn=fn||null;$('#undo').hidden=!fn;$('#toast').style.display='flex';clearTimeout(tt);tt=setTimeout(()=>$('#toast').style.display='none',ms||(fn?7000:3500))}
@@ -190,54 +220,61 @@ function qrPng(){const svg=$('#qr-box svg');if(!svg)return;const sv=svg.cloneNod
 async function finish(i){
  const old={list:i.list,qty:i.qty||null,expiry:i.expiry||null,drawer:i.drawer||'',home:i.home||''};
  await upd(i.id,{list:'shop',home:i.list,qty:null,expiry:null});
- toast('↩ '+i.name+' vuelve a la compra',()=>upd(i.id,old))}
-async function bought(i){
- await upd(i.id,{list:'pending'});
- toast('📥 '+i.name+' queda por guardar',()=>upd(i.id,{list:'shop'}))}
+ toast('🛒 '+i.name+' pasa a la compra',()=>upd(i.id,old))}
 async function dec(i){const q=i.qty||0;
  if(q>1){await upd(i.id,{qty:q-1});toast('−1 '+i.name+' (quedan '+(q-1)+')',()=>upd(i.id,{qty:q}),3500)}
- else if(await ask('¿Se acabó '+i.name+'?','Pasará a la lista de la compra.','Sí, se acabó'))finish(i)}
-function openBuy(i){buyId=i.id;const lc=homeFor(i);
- $('#b-title').textContent='Guardar: '+i.name;$('#b-loc').value=lc;$('#b-qty').value=i.qty||'';
- $('#b-dr').value=i.drawer||lastDr[lc]||'';$('#b-exp').value='';$('#dlg-buy').showModal()}
+ else if(await ask('¿Se terminó '+i.name+'?','Pasará a la lista de la compra.','Sí, se terminó'))finish(i)}
+/* Compra y Por guardar: tocar el producto abre la confirmación con dónde se guarda (doble comprobación) */
+/* No se rellena ningún sitio: si no se elige, queda en «Por guardar». «Donde estaba» es solo un atajo. */
+const syncWhere=()=>{$('#b-where').hidden=$('#b-loc').value==='pending'};
+function openBuy(i){buyId=i.id;const shop=i.list==='shop',prev=['fridge','freezer','pantry'].includes(i.home)?i.home:'';
+ $('#b-title').textContent=shop?'✔ ¿Compraste '+i.name+'?':'Guardar: '+i.name;
+ $('#b-msg').textContent=shop?'Elige dónde lo guardas. Si no eliges, queda en «Por guardar».':'Elige dónde lo guardas.';
+ $('#b-ok').textContent=shop?'✔ Comprado':'Guardar';$('#b-edit').hidden=!shop;
+ $('#b-loc').value='pending';$('#b-qty').value=i.qty||'';$('#b-dr').value='';$('#b-exp').value='';
+ const pv=$('#b-prev');pv.textContent='';pv.hidden=!prev;
+ if(prev){const b=el('button',null,'↩ Donde estaba: '+LOC[prev][1]+(i.drawer?' · '+i.drawer:''));b.type='button';
+  b.onclick=()=>{$('#b-loc').value=prev;$('#b-dr').value=i.drawer||'';syncWhere()};pv.append(b)}
+ syncWhere();$('#dlg-buy').showModal()}
+/* Nevera/Freezer/Despensa: tocar el producto ofrece «Se terminó» o «Editar» */
+function openAct(i){actId=i.id;
+ $('#x-t').textContent=emoji(i.name)+' '+i.name;
+ $('#x-m').textContent=(i.qty?'Hay ×'+i.qty+' en ':'Está en ')+LOC[i.list][1]+(i.drawer?' · '+i.drawer:'')+'. Si se terminó, pasa a la lista de la compra.';
+ $('#dlg-act').showModal()}
 function openEdit(i){editId=i.id;$('#e-name').value=i.name;$('#e-qty').value=i.qty||'';$('#e-dr').value=i.drawer||'';$('#e-exp').value=i.expiry||'';$('#e-loc').value=i.list;$('#e-cat').value=cat(i);$('#dlg-edit').showModal()}
 
 function tile(i){
- const t=el('div','tile'),m=el('button','main');
- m.setAttribute('aria-label','Editar '+i.name);
+ const t=el('div','tile'),m=el('button','main'),toBuy=i.list==='shop'||i.list==='pending';
+ m.setAttribute('aria-label',(i.list==='shop'?'Marcar comprado: ':i.list==='pending'?'Guardar: ':'Opciones de ')+i.name);
  m.append(el('span','emo',emoji(i.name)),el('span','nm',i.name));
  if(i.qty)m.append(el('span','qty','×'+i.qty));
  if(tab==='casa')m.append(el('span','bd',LOC[i.list][0]+' '+((i.list==='shop'||i.list==='pending')?LOC[i.list][1]:(i.drawer||LOC[i.list][1]))));
  if(i.list==='pending'&&i.home)m.append(el('span','bd','Suele ir a: '+LOC[i.home][1]+(i.drawer?' · '+i.drawer:'')));
  if(i.list!=='shop'&&i.expiry){const d=days(i.expiry);m.append(el('span','bd'+(d<=2?' bad':d<=5?' warn':''),d<0?'Caducado':d===0?'Caduca hoy':d===1?'Caduca mañana':'Caduca en '+d+' d'))}
- m.onclick=()=>openEdit(i);
- const a=el('div','act');
- if(i.list==='shop'){const b=el('button','ok','✔ Comprado');b.onclick=()=>bought(i);a.append(b)}
- else if(i.list==='pending'){const b=el('button','ok','📥 Guardar…');b.onclick=()=>openBuy(i);a.append(b)}
- else if(i.qty){
-  const mn=el('button',null,'−'),pl=el('button',null,'+');
+ m.onclick=()=>toBuy?openBuy(i):openAct(i);
+ t.style.setProperty('--c',CATS[cat(i)][1]);t.append(m);
+ if(!toBuy&&i.qty){const a=el('div','act'),mn=el('button',null,'−'),pl=el('button',null,'+');
   mn.setAttribute('aria-label','Restar uno a '+i.name);pl.setAttribute('aria-label','Sumar uno a '+i.name);
-  mn.onclick=()=>dec(i);pl.onclick=()=>upd(i.id,{qty:(i.qty||0)+1});a.append(mn,pl)}
- else{const b=el('button',null,'Se acabó');b.onclick=()=>finish(i);a.append(b)}
- t.style.setProperty('--c',CATS[cat(i)][1]);t.append(m,a);return t}
+  mn.onclick=()=>dec(i);pl.onclick=()=>upd(i.id,{qty:(i.qty||0)+1});a.append(mn,pl);t.append(a)}
+ return t}
 
 const cmp=m=>(a,b)=>{const n=a.name.localeCompare(b.name,'es');if(m==='za')return -n;if(m==='exp'){const x=a.expiry||'9',y=b.expiry||'9';return x<y?-1:x>y?1:n}return n};
 function renderHint(){
- const base={casa:'Todo lo que tienes en casa y en la lista. Toca un producto para editarlo.',shop:'Toca «Comprado» al llegar a casa: pasa a «Por guardar» hasta que decidas dónde va.',pending:'Lo comprado que aún no está guardado. Toca «Guardar…» para elegir nevera, freezer o despensa, gaveta y caducidad.',fridge:'Usa − y + para ajustar cantidades. Toca un producto para editarlo.',freezer:'Usa − y + para ajustar cantidades. Toca un producto para editarlo.',pantry:'Usa − y + para ajustar cantidades. Toca un producto para editarlo.'}[tab];
- $('#hint').textContent=base+(col?(!navigator.onLine?' · Sin conexión: tus cambios se enviarán al volver la cobertura.':pend?' · Guardando…':' · Sincronizado con toda la casa.'):' · Modo local: no se comparte.')}
+ $('#hint').textContent=col?(!navigator.onLine?'Sin conexión: tus cambios se enviarán al volver la cobertura.':pend?'Guardando…':'Sincronizado con toda la casa.'):'Modo local: no se comparte.'}
 function render(){
- const q=norm($('#q').value),mode=$('#sort').value,cnt=t=>items.filter(i=>t==='casa'||i.list===t).length;
+ const q=norm($('#q').value),mode=$('#sort').value,cnt=t=>items.filter(i=>inTab(i,t)).length;
  for(const t of TABS){$('#c-'+t).textContent=cnt(t)?'('+cnt(t)+')':'';$('#t-'+t).classList.toggle('on',t===tab)}
+ $('#tip').textContent=TIP[tab];
  document.querySelectorAll('#leg .chip').forEach(b=>b.classList.toggle('on',b.dataset.c===fcat));
  $('#dr').hidden=$('#exp').hidden=$('#loc').value==='shop';
  $('#drawers').replaceChildren(...[...new Set(items.filter(i=>i.drawer).map(i=>i.drawer))].sort().map(d=>{const o=el('option');o.value=d;return o}));
  $('#shopbar').hidden=!(tab==='shop'&&items.some(i=>i.list==='shop'));
- const L=items.filter(i=>(tab==='casa'||i.list===tab)&&norm(i.name).includes(q)&&(!fcat||cat(i)===fcat)).sort(cmp(mode)),g=$('#grid');g.textContent='';
+ const L=items.filter(i=>inTab(i,tab)&&norm(i.name).includes(q)&&(!fcat||cat(i)===fcat)).sort(cmp(mode)),g=$('#grid');g.textContent='';
  const gk=mode==='cat'?cat:(tab==='fridge'||tab==='freezer'||tab==='pantry')?i=>i.drawer||'Sin asignar':null;
  if(gk){const by={};for(const i of L){const k=gk(i);(by[k]=by[k]||[]).push(i)}
   for(const k of Object.keys(by).sort(mode==='cat'?(a,b)=>Object.keys(CATS).indexOf(a)-Object.keys(CATS).indexOf(b):(a,b)=>a.localeCompare(b,'es',{numeric:true}))){g.append(el('h2','sec',(mode==='cat'?CATS[k][0]:LOC[tab][0]+' '+k)+' ('+by[k].length+')'));const d=el('div','grid');by[k].forEach(i=>d.append(tile(i)));g.append(d)}}
  else{const d=el('div','grid');L.forEach(i=>d.append(tile(i)));g.append(d)}
- const em=$('#empty');em.hidden=!!L.length;em.textContent=(q||fcat)?'Sin resultados.':(tab==='pending'?'Todo guardado. Lo que compres aparecerá aquí.':'Nada por aquí todavía. Añade el primer producto arriba.');
+ const em=$('#empty');em.hidden=!!L.length;em.textContent=(q||fcat)?'Sin resultados.':(tab==='pending'?'Todo guardado. Lo que compres aparecerá aquí.':tab==='shop'?'No falta nada por comprar.':'Aquí no hay nada ahora mismo. Añade productos arriba.');
  renderHint()}
 
 /* ---------- Añadir ---------- */
@@ -291,13 +328,28 @@ $('#e-del').onclick=()=>{const it=items.find(i=>i.id===editId);$('#dlg-edit').cl
  const c={...it};del(it.id);toast('Eliminado: '+c.name,()=>{delete c.id;delete c.created_at;add(c)})};
 
 $('#b-no').onclick=()=>$('#dlg-buy').close();
-$('#b-loc').onchange=()=>{if(!$('#b-dr').value)$('#b-dr').value=lastDr[$('#b-loc').value]||''};
+$('#b-loc').onchange=syncWhere;
 $('#b-quick').onclick=e=>{const d=e.target.dataset&&e.target.dataset.d;if(d)$('#b-exp').value=iso(+d)};
 $('#b-ok').onclick=async()=>{const it=items.find(i=>i.id===buyId);$('#dlg-buy').close();if(!it)return;
- const lc=$('#b-loc').value,dr=$('#b-dr').value.trim();if(dr)lastDr[lc]=dr;
- const old={list:'pending',qty:it.qty||null,drawer:it.drawer||'',expiry:null,home:it.home||''};
- await upd(it.id,{list:lc,qty:parseInt($('#b-qty').value)||null,drawer:dr,expiry:$('#b-exp').value,home:''});
- toast('✔ '+it.name+' pasa a '+LOC[lc][1].toLowerCase(),()=>upd(it.id,old))};
+ const lc=$('#b-loc').value,qn=parseInt($('#b-qty').value)||null;
+ if(lc==='pending'){if(it.list==='pending'){upd(it.id,{qty:qn});return toast(it.name+' sigue en «Por guardar»')}
+  const was={list:it.list,qty:it.qty||null};await upd(it.id,{list:'pending',qty:qn});
+  return toast('📥 '+it.name+' queda por guardar',()=>upd(it.id,was))}
+ const dr=$('#b-dr').value.trim(),where=LOC[lc][1].toLowerCase()+(dr?' · '+dr:'');if(dr)lastDr[lc]=dr;
+ /* Si ya hay el mismo producto en ese sitio, se suma la cantidad en vez de duplicarlo */
+ const ex=items.find(x=>x.id!==it.id&&x.list===lc&&norm(x.name)===norm(it.name)&&(x.drawer||'')===dr);
+ if(ex){const oq=ex.qty||null;await upd(ex.id,{qty:oq&&qn?oq+qn:(oq||qn)});del(it.id);
+  return toast('✔ '+it.name+' sumado en '+where,()=>{upd(ex.id,{qty:oq});add(it)})}
+ const old={list:it.list,qty:it.qty||null,drawer:it.drawer||'',expiry:it.expiry||null,home:it.home||''};
+ await upd(it.id,{list:lc,qty:qn,drawer:dr,expiry:$('#b-exp').value,home:''});
+ toast('✔ '+it.name+' guardado en '+where,()=>upd(it.id,old))};
+$('#b-edit').onclick=()=>{const it=items.find(i=>i.id===buyId);$('#dlg-buy').close();if(it)openEdit(it)};
+$('#x-no').onclick=()=>$('#dlg-act').close();
+$('#x-out').onclick=()=>{const it=items.find(i=>i.id===actId);$('#dlg-act').close();if(it)finish(it)};
+$('#x-edit').onclick=()=>{const it=items.find(i=>i.id===actId);$('#dlg-act').close();if(it)openEdit(it)};
+/* La leyenda se abre la primera vez y recuerda si la cierras */
+try{$('#help').open=localStorage.getItem('casa-help')!=='0'}catch(e){$('#help').open=true}
+$('#help').ontoggle=()=>{try{localStorage.setItem('casa-help',$('#help').open?'1':'0')}catch(e){}};
 
 /* ---------- Arranque ---------- */
 async function init(){
