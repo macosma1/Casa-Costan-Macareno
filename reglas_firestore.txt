@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // La lista de cada casa vive bajo su código secreto: /casas/{codigo}/items/...
+    match /casas/{casa}/items/{item} {
+      allow read, delete: if casa.size() >= 8;
+      allow create, update: if casa.size() >= 8
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() < 120
+        && request.resource.data.list in ['shop','pending','fridge','freezer','pantry'];
+    }
+  }
+}

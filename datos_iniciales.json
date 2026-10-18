@@ -1,0 +1,722 @@
+[
+ {
+  "name": "Hielo",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 1",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Rollitos primavera",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 1",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Lasagna",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 1",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Bachoquetas",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 1",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Pulled Pork",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 1",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Tocineta",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 1",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Longaniza",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 1",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Papas fritas",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 1",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "hamburguesas",
+  "qty": 6,
+  "list": "freezer",
+  "drawer": "Gaveta 1",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "chuletas lomo",
+  "qty": 12,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "chuletas aguja",
+  "qty": 12,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "milanesas de carne",
+  "qty": 4,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "filetes de pavo",
+  "qty": 8,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "filetes de pechuga de pollo",
+  "qty": 14,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "pechugas de pollo",
+  "qty": 3,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "filetes de lomo",
+  "qty": 3,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Butifarra",
+  "qty": 6,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "pechugas de pavo",
+  "qty": 3,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "lomo (asados)",
+  "qty": 2,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "morcilla",
+  "qty": 1,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "chorizos",
+  "qty": 4,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Hueso jamón",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "longanizas",
+  "qty": 6,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Combinado asturiano",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 2",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Salchichas perro",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 3",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Chistorras",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 3",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Camarones",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 3",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Croquetas de bacalao",
+  "qty": 6,
+  "list": "freezer",
+  "drawer": "Gaveta 3",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Salmón ahumado",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 3",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "solomillos de pavo",
+  "qty": 2,
+  "list": "freezer",
+  "drawer": "Gaveta 3",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Jamoncitos de pollo",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 3",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Costillas",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 3",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Tira costillas de cerdo",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 3",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Boquerones enharinados",
+  "qty": null,
+  "list": "freezer",
+  "drawer": "Gaveta 3",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Servilletas",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Absorbo",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Helado fresa",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Harina de trigo",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Mantequilla",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Caldo",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Huevos",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Sal",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Limpia cristales",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Jugos",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Azafrán",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Longanizas de pollo",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Fideuá",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Guayaba",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Secreto",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Pimentón",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Leche",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Jugo naranja",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Nuggets",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Anchoas",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Cebolla morada",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Aceituna",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Puerro",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Tomate pera",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Blaquet",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Jabón cuerpo verde",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Pasta de dientes",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Papas fritas",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Chía",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Naranja",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Cerveza",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Azúcar",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Leche condensada",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Helado",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Deshumidificador",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Maracuyá",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Champiñones",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Tomate",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Papas",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Atún",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Fuet",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Harina pan",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Bicarbonato de sodio",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Antical",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Queso lonchas",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ },
+ {
+  "name": "Hielo",
+  "qty": null,
+  "list": "shop",
+  "drawer": "",
+  "expiry": null,
+  "cat": "",
+  "home": ""
+ }
+]
